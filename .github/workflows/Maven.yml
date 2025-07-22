@@ -1,0 +1,17 @@
+name: Java CI with Maven
+
+on: [push, pul_request]
+
+jobs:
+  builds:
+  
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distrbution: 'adopt'
+    - name: Buid with maven
+      run: mvn -B -e verify
